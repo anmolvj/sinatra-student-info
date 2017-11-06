@@ -1,0 +1,32 @@
+<form method="post" class="field"action="/login">
+  <div class="field">
+    <p class="control has-icons-left has-icons-right">
+      <input class="input" type="text" placeholder="Email" name="email">
+      <span class="icon is-small is-left">
+        <i class="fa fa-envelope"></i>
+      </span>
+    </p>
+  </div>
+  <div class="field">
+    <p class="control has-icons-left">
+      <input class="input" type="password" name="pwd" placeholder="Password">
+      <span class="icon is-small is-left">
+        <i class="fa fa-lock"></i>
+      </span>
+    </p>
+  </div>
+  <p>
+   <input type ="submit" value="Login" class="button is-success">
+   <a href="/signup" class="button is-info">Signup</a>
+ </p>
+</form>
+
+
+<h1>User List</h1>
+<ul>
+<% @users.each do |user| %>
+ <li>
+   <a href="/user/<%= user.id %>"><%= user.name %></a> | <%= user.email %> | <%= user.id %>
+ </li>
+<% end %>
+</ul>
