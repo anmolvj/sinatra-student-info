@@ -37,20 +37,6 @@
       </a>
     </li>
 
-    <% if User.exists?(id: session[:user_id]) %>
-    <li>
-      <a href="/logout">
-        <span class="icon is-small"><i class="fa fa-sign-out"></i></span>
-        <span>Logout</span>
-      </a>
-    </li>
-    <% else %>
-    <li>
-      <a href="/login">
-        <span class="icon is-small"><i class="fa fa-sign-in"></i></span>
-        <span>Login</span>
-      </a>
-    </li>
-    <% end %>
+    
   </ul>
 </div>

@@ -1,7 +1,8 @@
-# app.rb
-require "sinatra"
-require "sinatra/activerecord"
+
 require "./models.rb"
+require "sinatra"
+
+# require "./models.rb"
 
 set :database, "sqlite3:assignment3db.sqlite3"
 enable :sessions

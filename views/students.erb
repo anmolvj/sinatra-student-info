@@ -21,7 +21,8 @@
 
 
 
-<% if User.exists?(id: session[:user_id]) %>
+
+<% if User.count(id: session[:user_id]) != 0 %>
 <h2 class="title ">Add Student</h2>
 <form method="post" action="/student">
     <label for="name" class="label">Name: </label>
