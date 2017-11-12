@@ -1,16 +1,16 @@
 
-
+<section class="students_section">
 <table class="table is-bordered is-narrow is-hoverable is-fullwidth ">
   <thead>
     <tr>
-      <th><abbr title="Table Head">List of Students</abbr></th>
+      <th><abbr title="Table Head"><p class="has-text-centered">List of Students</p></abbr></th>
     </tr>
   </thead>
 
   <tbody>
         <% @students.each do |student| %>
         <tr>
-         <th><a href="/student/<%= student.id %>"><%= student.firstname %>  <%= student.lastname %></a></th>
+         <th><a href="/student/<%= student.id %>"> <p class="has-text-centered"><%= student.firstname %>  <%= student.lastname %></p></a></th>
 
        </tr>
       <% end %>
@@ -80,3 +80,5 @@
 
    <a href="/login" class="button is-warning">Login to Add Students</a>
 <% end %>
+
+</section>

@@ -1,17 +1,17 @@
-<!-- views/index.erb -->
+<section class="comments_section">
 <table class="table is-bordered is-narrow is-hoverable is-fullwidth ">
   <thead>
     <tr>
-      <th><abbr title="comment">Comment</abbr></th>
-      <th><abbr title="timestamp">TimeStamp</abbr></th>
+      <th><abbr title="comment"><p class="has-text-centered">Comment</p></abbr></th>
+      <th><abbr title="timestamp"><p class="has-text-centered">TimeStamp</p></abbr></th>
     </tr>
   </thead>
 
   <tbody>
       <% @comments.each do |comment| %>
        <tr>
-         <th><a href="/comment/<%= comment.id %>"><%= comment.name %></a></th>
-         <th><%= comment.created_at %></th>
+         <th><a href="/comment/<%= comment.id %>"><p class="has-text-centered"><%= comment.name %></p></a></th>
+         <th><p class="has-text-centered"><%= comment.created_at %></p></th>
      </tr>
       <% end %>
   </tbody>
@@ -30,3 +30,5 @@
 
    <a href="/login" class="button is-warning">Login to Add Comments</a>
 <% end %>
+
+</section>
