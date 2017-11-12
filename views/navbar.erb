@@ -36,8 +36,7 @@
         <span>Video</span>
       </a>
     </li>
-
-    <% if User.exists?(id: session[:user_id]) %>
+    <% if User.count(id: session[:user_id]) != 0 %>
     <li>
       <a href="/logout">
         <span class="icon is-small"><i class="fa fa-sign-out"></i></span>

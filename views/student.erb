@@ -1,0 +1,66 @@
+<a href="/students" class="button is-warning">
+  <span class="icon is-small"><i class="fa fa-arrow-left"></i></span>
+  <span>Student List</span>
+</a>
+
+<div class="card ">
+  <div class="card-content">
+    <div class="media">
+
+      <div class="media-content">
+        <p class="title is-4"><%= @student.firstname %> <%= @student.lastname %></p>
+        <p class="subtitle is-6">Joined - <%= @student.created_at %></p>
+        <p class="subtitle is-6">Address - <%= @student.address %></p>
+        <p class="subtitle is-6">Student_ID - <%= @student.student_id %></p>
+        <p class="subtitle is-6">Birthday - <%= @student.birthday.to_s %></p>
+        <p class="subtitle is-6">Extrs Info - <%= @student.extrainfo %></p>
+      </div>
+    </div>
+
+    <div class="content">
+    
+    </div>
+  </div>
+</div>
+
+
+
+
+<% if User.count(id: session[:user_id]) != 0 %>
+<h2 class="title">Edit Student Info</h2>
+<form method="post" action="/student/<%= @student.id %>">
+    <input type="hidden" name="_method" value="put">
+
+    <label for="firstname" class="label">First Name: </label>
+    <input type="text" name="firstname" value="<%= @student.firstname %>" class="input">
+
+    <label for="lastname" class="label">Last Name: </label>
+    <input type="text" name="lastname" value="<%= @student.lastname %>" class="input">
+
+    <label for="address" class="label">Birthday: </label>
+    <input type="number" name="birthday_year" value="<%= @student.birthday_year %>" class="input" placeholder="Year">
+    <input type="number" name="birthday_month" value="<%= @student.birthday_month %>" class="input" placeholder="Month">
+    <input type="number" name="birthday_day" value="<%= @student.birthday_day %>" class="input" placeholder="Day">
+
+
+    <label for="address" class="label">Address: </label>
+    <input type="text" name="address" value="<%= @student.address %>" class="input">
+
+    <label for="student_id" class="label">Student ID: </label>
+    <input type="text" name="student_id" value="<%= @student.student_id %>" class="input">
+
+    <label for="extrainfo" class="label">Exra Info: </label>
+    <input type="text" name="extrainfo" value="<%= @student.extrainfo %>" class="input">
+
+    <button type="submit" class="button is-success">Update Student Info</button>
+</form>
+
+<form method="post" action="/student/<%= @student.id %>">
+    <input type="hidden" name="_method" value="delete">
+    <button type="submit" class="button is-danger">Delete This Student</button>
+</form>
+
+<% else %>
+
+   <a href="/login" class="button is-warning">Login to Edit Student Info</a>
+<% end %>

@@ -10,7 +10,7 @@
   <tbody>
       <% @comments.each do |comment| %>
        <tr>
-         <th><a href="/comment/<%= comment.id %>"><%= comment.title %></a></th>
+         <th><a href="/comment/<%= comment.id %>"><%= comment.name %></a></th>
          <th><%= comment.created_at %></th>
      </tr>
       <% end %>
@@ -18,11 +18,11 @@
 </table>
 
 
-<% if User.exists?(id: session[:user_id]) %>
+<% if User.count(id: session[:user_id]) != 0  %>
   <h2>Add Comment</h2>
   <form method="post" action="/comment">
-     <label for="title" class="label">Title: </label>
-     <input type="text" name="title" class="input" placeholder="e.g MVC in Sinatra Apps">
+     <label for="name" class="label">Title: </label>
+     <input type="text" name="name" class="input" placeholder="e.g MVC in Sinatra Apps">
      <label for="content" class="label">Content: </label>
      <input type="text" name="content" class="input" placeholder="e.g I found the implementation of a MVC style Sinatra app...">
      <input type ="submit" value="Add Comment" class="button">
