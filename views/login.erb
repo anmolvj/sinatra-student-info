@@ -9,7 +9,7 @@
   </div>
   <div class="field">
     <p class="control has-icons-left">
-      <input class="input" type="password" name="pwd" placeholder="Password">
+      <input class="input" type="password" name="password" placeholder="Password">
       <span class="icon is-small is-left">
         <i class="fa fa-lock"></i>
       </span>
@@ -21,6 +21,9 @@
  </p>
 </form>
 
+<% if @error_message != "" %>
+  <h1 class="is-danger"><%= @error_message %></h1>
+<% end %>
 
 <h1>User List</h1>
 <ul>

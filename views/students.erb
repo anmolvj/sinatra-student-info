@@ -1,5 +1,35 @@
-<!-- views/index.erb -->
-<h2 class="title ">List of Students</h2>
+<% if User.count(id: session[:user_id]) != 0 %>
+<h2 class="title ">Add Student</h2>
+<form method="post" action="/student">
+
+   <label for="firstname" class="label">First Name: </label>
+   <input type="text" name="firstname"  class="input" placeholder="e.g Alex">
+
+   <label for="lastname" class="label">Last Name: </label>
+   <input type="text" name="lastname"  class="input" placeholder="e.g Smith">
+
+   <label for="address" class="label">Address: </label>
+   <input type="text" name="address"  class="input" placeholder="e.g 123 Street, CA">
+
+   <label for="student_id" class="label">Student ID: </label>
+   <input type="text" name="student_id"  class="input" placeholder="e.g 12345">
+
+   <label for="extrainfo" class="label">Exra Info: </label>
+   <input type="text" name="extrainfo"  class="input" placeholder="e.g The student is a a part of swimming team">
+
+   <input type ="submit" value="Add Student" class="button is-success">
+</form>
+<% else %>
+
+   <a href="/login" class="button is-warning">Login to Add Students</a>
+<% end %>
+
+
+
+
+<br/>
+<hr/ >
+
 <table class="table is-bordered is-narrow is-hoverable is-fullwidth ">
   <thead>
     <tr>
@@ -10,28 +40,9 @@
   <tbody>
         <% @students.each do |student| %>
         <tr>
-         <th><a href="/student/<%= student.id %>"><%= student.name %></a></th>
+         <th><a href="/student/<%= student.id %>"><%= student.firstname %>  <%= student.lastname %></a></th>
 
        </tr>
       <% end %>
   </tbody>
 </table>
-
-
-
-
-
-
-<% if User.count(id: session[:user_id]) != 0 %>
-<h2 class="title ">Add Student</h2>
-<form method="post" action="/student">
-    <label for="name" class="label">Name: </label>
-   <input type="text" name="name" class="input" placeholder="e.g Alex Smith">
-   <label for="info" class="label">Info: </label>
-   <input type="text" name="info" class="input" placeholder="Scheduled to meet at 04:00PM">
-   <input type ="submit" value="Add Student" class="button is-success">
-</form>
-<% else %>
-
-   <a href="/login" class="button is-warning">Login to Add Students</a>
-<% end %>

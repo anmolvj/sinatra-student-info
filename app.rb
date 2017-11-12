@@ -8,6 +8,12 @@ set :database, "sqlite3:assignment3db.sqlite3"
 enable :sessions
 
 
+
+student = Student.new firstname: "fire", lastname: "bom",  address:"my address", student_id: 1284369
+student.save
+comment = Comment.new name: "first comment", content: "These are the contents of this first comment"
+comment.save
+
 # index page
 get '/' do
 	erb :index
@@ -36,24 +42,34 @@ get '/students' do
 end
 # get student - using id
 get "/student/:id" do
- @student = Student.find(params[:id])
- erb :student_info
+ @student = Student.get(params[:id])
+ erb :student
 end
 # create student
 post '/student' do
-	@student = Student.create(name: params[:name], info: params[:info])
-	redirect '/students'
+	@student = Student.new
+	@student.firstname = params[:firstname]
+	@student.lastname = params[:lastname]
+	@student.address = params[:address]
+	@student.student_id = params[:student_id]
+	@student.extrainfo = params[:extrainfo]
+	if (Student.count(student_id: @student.student_id) == 0)
+		@student.save
+		redirect '/students'
+	else
+		session[:error_message] = "The student with given credentials already exists"
+		redirect '/students'
+	end
 end
 # update student
 put '/student/:id' do
-	@student = Student.find(params[:id])
-	@student.update(name: params[:name], info: params[:info])
-	@student.save
+	@student = Student.get(params[:id])
+	@student.update(firstname: params[:firstname], lastname: params[:lastname], address: params[:address], student_id: params[:student_id], extrainfo: params[:extrainfo])
 	redirect '/student/'+params[:id]
 end
 # delete student
 delete '/student/:id' do
-	@student = Student.find(params[:id])
+	@student = Student.get(params[:id])
 	@student.destroy
 	redirect '/students'
 end
@@ -67,12 +83,12 @@ get '/comments' do
 end
 # get comment - using id
 get "/comment/:id" do
- @comment = Comment.find(params[:id])
- erb :comment_content
+ @comment = Comment.get(params[:id])
+ erb :comment
 end
 # create comment
 post '/comment' do
-	@comment = Comment.create(title: params[:title], content: params[:content])
+	@comment = Comment.create(name: params[:name], content: params[:content])
 	redirect '/comments'
 end
 
@@ -87,19 +103,30 @@ get '/signup' do
 	erb :signup
 end
 post '/signup' do
-	@user = User.create(name: params[:name], email: params[:email], pwd: params[:pwd])
-	session[:user_id] = @user.id
-	redirect '/logout'
+	@user = User.new
+	@user.name = params[:name]
+	@user.email = params[:email]
+	@user.password = params[:password]
+	if (User.count(email: @user.email, password: @user.password) == 0)
+		@user.save
+		session[:user_id] = @user.id
+		session[:error_message] = ""
+		redirect '/logout'
+	else
+		session[:error_message] = "The user with given credentials already exists"
+		redirect '/login'
+	end
 end
 
 #login
 get '/login' do
+	@error_message = session[:error_message]
 	@users = User.all
 	erb :login
 end
 
 post '/login' do
-	@user = User.find_by(email: params["email"], pwd: params["pwd"])
+	@user = User.first(email: params["email"], password: params["password"])
 	session[:user_id] = @user.id
 	redirect '/logout'
 end
@@ -107,25 +134,10 @@ end
 #logout
 get '/logout' do
 	@sid = session[:user_id]
-	@user = User.find(@sid)
+	@user = User.get(@sid)
 	erb :logout
 end
 post '/logout' do
 	session.clear
 	redirect '/login'
 end
-
-
-
-# #login/logout related
-# get '/loginout' do
-# 	@users = User.all
-# 	erb :loginout
-# end
-#
-# # create user
-# post '/loginout' do
-# 	@user = User.create(name: params[:name], email: params[:email], pwd: params[:pwd])
-# 	session[:id] = @user.id
-# 	redirect '/loginout/'+ @user.id
-# end

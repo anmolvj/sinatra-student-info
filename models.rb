@@ -16,10 +16,11 @@ class Student
   property :id,           Serial
   property :firstname,    String  , required:true
   property :lastname,     String  , required:true
-  property :birthday,     Date    , required:true
+
   property :address,      Text
-  property :student_id,   Integer , required:true
-  property :info,         Text
+  property :student_id,   Integer , required:true, unique:true
+  property :extrainfo,    Text, default: "No extra information available"
+  property :created_at,   DateTime
 
 end
 
