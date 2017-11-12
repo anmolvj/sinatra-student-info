@@ -60,7 +60,21 @@ body {
 	width: 50%;
 	margin: auto;
 }
+.comment_section{
+	width: 50%;
+	margin: auto;
+}
+.comment_content{
+	text-align: left;
+}
 .students_section{
 	width: 30%;
 	margin: auto;
+}
+.student_section{
+	width: 30%;
+	margin: auto;
+}
+.field, .control{
+  text-align: center;
 }

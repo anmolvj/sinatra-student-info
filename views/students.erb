@@ -10,7 +10,7 @@
   <tbody>
         <% @students.each do |student| %>
         <tr>
-         <th><a href="/student/<%= student.id %>"> <p class="has-text-centered"><%= student.firstname %>  <%= student.lastname %></p></a></th>
+         <th><a href="/student/<%= student.id %>"> <p class="has-text-centered"><%= student.name.split.map(&:capitalize).join(' ') %></p></a></th>
 
        </tr>
       <% end %>
@@ -67,12 +67,9 @@
     </div>
 
 
-    <div class="field is-grouped">
+    <div class="field">
       <div class="control">
         <input type ="submit" value="Add Student" class="button is-success">
-      </div>
-      <div class="control">
-        <button class="button is-text">Hide Form</button>
       </div>
     </div>
 </form>

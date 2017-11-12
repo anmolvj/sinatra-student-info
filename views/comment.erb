@@ -1,20 +1,20 @@
-
-<br/>
-<article class="media">
-  <figure class="media-left">
-
-  </figure>
-  <div class="media-content">
-    <div class="content">
-      <p>
-        <strong class="has-text-primary"><%= @comment.name.split.map(&:capitalize).join(' ') %></strong> <small>Created at -></small> <small><%= @comment.created_at %></small>
-        <br>
-        <%= @comment.content %>
-      </p>
-    </div>
-  </div>
-</article>
-
+<section class="comment_section">
+  <a href="/comments" class="button is-warning"> << Comments</a>
 <br/><br/>
-<a href="/comments" class="button is-warning"> << Comments</a>
+<div class="card ">
+  <div class="card-content">
+    <div class="media">
+      <div class="media-content">
+        <p><strong class="title is-4 has-text-primary"><%= @comment.name.split.map(&:capitalize).join(' ') %></strong> <br />
+          <small class="has-text-grey">Created at -></small> <small class="has-text-grey"><%= @comment.created_at %></small></p>
+
+      </div>
+    </div>
+    <div class="content comment_content "><%= @comment.content %></div>
+  </div>
+</div>
+
+
+
 <br/>
+</section>

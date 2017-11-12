@@ -1,3 +1,4 @@
+<section class="student_section">
 <a href="/students" class="button is-warning">
   <span class="icon is-small"><i class="fa fa-arrow-left"></i></span>
   <span>Student List</span>
@@ -76,19 +77,16 @@
     </div>
 
 
-    <div class="field is-grouped">
+    <div class="field">
       <div class="control">
         <button type="submit" class="button is-success">Update Student Info</button>
-      </div>
-      <div class="control">
-        <button class="button is-text">Hide Form</button>
       </div>
     </div>
 </form>
 <br/>
 <form method="post" action="/student/<%= @student.id %>">
     <input type="hidden" name="_method" value="delete">
-    <div class="field is-grouped">
+    <div class="field">
       <div class="control">
         <button type="submit" class="button is-danger">Delete This Student</button>
       </div>
@@ -103,3 +101,4 @@
 
 
 <br/><br/>
+</section>
