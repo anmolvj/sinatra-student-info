@@ -22,10 +22,10 @@
 </form>
 
 <% if @error_message != "" %>
-  <h1 class="is-danger"><%= @error_message %></h1>
+  <h1 class="has-text-danger"><%= @error_message %></h1>
 <% end %>
 
-<h1>User List</h1>
+
 <ul>
 <% @users.each do |user| %>
  <li>

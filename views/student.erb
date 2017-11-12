@@ -12,12 +12,13 @@
         <p class="subtitle is-6">Joined - <%= @student.created_at %></p>
         <p class="subtitle is-6">Address - <%= @student.address %></p>
         <p class="subtitle is-6">Student_ID - <%= @student.student_id %></p>
+        <p class="subtitle is-6">Birthday - <%= @student.birthday.to_s %></p>
         <p class="subtitle is-6">Extrs Info - <%= @student.extrainfo %></p>
       </div>
     </div>
 
     <div class="content">
-      <%= @student.extrainfo %>
+    
     </div>
   </div>
 </div>
@@ -36,6 +37,10 @@
     <label for="lastname" class="label">Last Name: </label>
     <input type="text" name="lastname" value="<%= @student.lastname %>" class="input">
 
+    <label for="address" class="label">Birthday: </label>
+    <input type="number" name="birthday_year" value="<%= @student.birthday_year %>" class="input" placeholder="Year">
+    <input type="number" name="birthday_month" value="<%= @student.birthday_month %>" class="input" placeholder="Month">
+    <input type="number" name="birthday_day" value="<%= @student.birthday_day %>" class="input" placeholder="Day">
 
 
     <label for="address" class="label">Address: </label>

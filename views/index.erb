@@ -1,1 +1,8 @@
-INDEX
+<% if User.count(id: session[:user_id]) != 0 %>
+  <h1 class="title is-3 has-text-primary">Welcome <%= @user.name %></h1>
+  <p class="subtitle is-4 has-text-dark">Its always good to see you!</p>
+<% else %>
+  <h1 class="title is-3 has-text-primary">Welcome Guest!</h1>
+  <a href="/login" class="button is-warning">Login to unlock amazing features</a>
+
+<% end %>
