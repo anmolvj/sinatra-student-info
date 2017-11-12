@@ -2,7 +2,7 @@ require "./models.rb"
 require "sinatra"
 
 
-# set :database, "sqlite3:assignment3db.sqlite3"
+
 enable :sessions
 
 class Main
@@ -145,7 +145,7 @@ post '/login' do
 	else
 		session[:error_message] = "User doesn't exist. Please signup."
 		redirect '/login'
-	end	
+	end
 end
 
 #logout

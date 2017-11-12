@@ -2,6 +2,7 @@
 require "data_mapper"
 # DataMapper.setup :default, "sqlite3://#{Dir.pwd}/assignment3.db"
 DataMapper::setup(:default, ENV['DATABASE_URL'] || "sqlite3://#{Dir.pwd}/development.db")
+# DataMapper::setup(:default, ENV['DATABASE_URL'])
 
 class User
   include DataMapper::Resource
