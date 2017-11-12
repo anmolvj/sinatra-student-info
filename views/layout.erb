@@ -18,6 +18,36 @@
 		 <%= yield %>
  	</div>
 		<%= erb :footer %>
+	<script>
+	// self executing function here
+	(function() {
+	   let _path = window.location.pathname.split( '/' );
+		 if(_path.includes("about")){
+			 document.getElementById("about").classList.add("is-active");
+			}
+			else if (_path.includes("contact")) {
+				document.getElementById("contact").classList.add("is-active");
+			}
+			else if (_path.includes("students") || _path.includes("student")) {
+				document.getElementById("students").classList.add("is-active");
+			}
+			else if (_path.includes("comments") || _path.includes("comment")) {
+				document.getElementById("comments").classList.add("is-active");
+			}
+			else if (_path.includes("video")) {
+				document.getElementById("video").classList.add("is-active");
+			}
+			else if (_path.includes("login")) {
+				document.getElementById("login").classList.add("is-active");
+			}
+			else if (_path.includes("logout")) {
+				document.getElementById("logout").classList.add("is-active");
+			}
+			else {
+				document.getElementById("home").classList.add("is-active");
+			}
 
+	})();
+	</script>
 </body>
 </html>

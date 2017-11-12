@@ -1,39 +1,4 @@
-<% if User.count(id: session[:user_id]) != 0 %>
-<h2 class="title ">Add Student</h2>
-<form method="post" action="/student">
 
-   <label for="firstname" class="label">First Name: </label>
-   <input type="text" name="firstname"  class="input" placeholder="e.g Alex">
-
-   <label for="lastname" class="label">Last Name: </label>
-   <input type="text" name="lastname"  class="input" placeholder="e.g Smith">
-
-   <label for="address" class="label">Birthday: </label>
-   <input type="number" name="birthday_year"  class="input" placeholder="Year">
-   <input type="number" name="birthday_month"  class="input" placeholder="Month">
-   <input type="number" name="birthday_day"  class="input" placeholder="Day">
-
-   <label for="address" class="label">Address: </label>
-   <input type="text" name="address"  class="input" placeholder="e.g 123 Street, CA">
-
-   <label for="student_id" class="label">Student ID: </label>
-   <input type="text" name="student_id"  class="input" placeholder="e.g 12345">
-
-   <label for="extrainfo" class="label">Exra Info: </label>
-   <input type="text" name="extrainfo"  class="input" placeholder="e.g The student is a a part of swimming team">
-
-   <input type ="submit" value="Add Student" class="button is-success">
-</form>
-<% else %>
-
-   <a href="/login" class="button is-warning">Login to Add Students</a>
-<% end %>
-
-
-
-
-<br/>
-<hr/ >
 
 <table class="table is-bordered is-narrow is-hoverable is-fullwidth ">
   <thead>
@@ -51,3 +16,67 @@
       <% end %>
   </tbody>
 </table>
+
+<br/><br />
+
+<% if User.count(id: session[:user_id]) != 0 %>
+<h2 class="title ">Add Student</h2>
+<form method="post" action="/student">
+    <div class="field">
+      <label class="label">First Name</label>
+      <div class="control">
+        <input type="text" name="firstname"  class="input" placeholder="e.g Alex">
+      </div>
+    </div>
+
+    <div class="field">
+      <label class="label">Last Name</label>
+      <div class="control">
+        <input type="text" name="lastname"  class="input" placeholder="e.g Smith">
+      </div>
+    </div>
+
+    <div class="field">
+      <label class="label">Birthday</label>
+      <div class="control">
+        <input type="number" name="birthday_year"  class="input" placeholder="Year">
+        <input type="number" name="birthday_month"  class="input" placeholder="Month">
+        <input type="number" name="birthday_day"  class="input" placeholder="Day">
+      </div>
+    </div>
+
+    <div class="field">
+      <label class="label">Address</label>
+      <div class="control">
+        <input type="text" name="address"  class="input" placeholder="e.g 123 Street, CA">
+      </div>
+    </div>
+
+    <div class="field">
+      <label class="label">Student ID</label>
+      <div class="control">
+        <input type="text" name="student_id"  class="input" placeholder="e.g 12345">
+      </div>
+    </div>
+
+    <div class="field">
+      <label class="label">Extra Info</label>
+      <div class="control">
+        <input type="text" name="extrainfo"  class="input" placeholder="e.g The student is a a part of swimming team">
+      </div>
+    </div>
+
+
+    <div class="field is-grouped">
+      <div class="control">
+        <input type ="submit" value="Add Student" class="button is-success">
+      </div>
+      <div class="control">
+        <button class="button is-text">Hide Form</button>
+      </div>
+    </div>
+</form>
+<% else %>
+
+   <a href="/login" class="button is-warning">Login to Add Students</a>
+<% end %>

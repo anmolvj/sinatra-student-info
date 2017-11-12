@@ -1,5 +1,20 @@
-<h2><%= @comment.name %></h2>
-<p>Created: <%= @comment.created_at %></p>
-<p><%= @comment.content %></p>
 
-<a href="/comments" class="button"> ...All Comments</a>
+<br/>
+<article class="media">
+  <figure class="media-left">
+
+  </figure>
+  <div class="media-content">
+    <div class="content">
+      <p>
+        <strong class="has-text-primary"><%= @comment.name.split.map(&:capitalize).join(' ') %></strong> <small>Created at -></small> <small><%= @comment.created_at %></small>
+        <br>
+        <%= @comment.content %>
+      </p>
+    </div>
+  </div>
+</article>
+
+<br/><br/>
+<a href="/comments" class="button is-warning"> << Comments</a>
+<br/>

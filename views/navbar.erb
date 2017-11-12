@@ -1,50 +1,50 @@
 <div class="tabs is-centered">
   <ul>
-    <li class="is-active">
+    <li id="home" >
       <a href="/">
         <span class="icon is-small"><i class="fa fa-home"></i></span>
         <span>Home</span>
       </a>
     </li>
-    <li>
+    <li id="about">
       <a href="/about">
         <span class="icon is-small"><i class="fa fa-info"></i></span>
         <span>About</span>
       </a>
     </li>
-    <li>
+    <li id="contact">
       <a href="/contact">
         <span class="icon is-small"><i class="fa fa-phone"></i></span>
         <span>Contact</span>
       </a>
     </li>
-    <li>
+    <li id="students">
       <a href="/students">
         <span class="icon is-small"><i class="fa fa-graduation-cap"></i></span>
         <span>Students</span>
       </a>
     </li>
-    <li>
+    <li id="comments">
       <a href="/comments">
         <span class="icon is-small"><i class="fa fa-comment"></i></span>
         <span>Comments</span>
       </a>
     </li>
-    <li>
+    <li id="video">
       <a href="/video">
         <span class="icon is-small"><i class="fa fa-video-camera"></i></span>
         <span>Video</span>
       </a>
     </li>
     <% if User.count(id: session[:user_id]) != 0 %>
-    <li>
+    <li id="logout">
       <a href="/logout">
         <span class="icon is-small"><i class="fa fa-sign-out"></i></span>
         <span>Logout</span>
       </a>
     </li>
     <% else %>
-    <li>
+    <li id="login">
       <a href="/login">
         <span class="icon is-small"><i class="fa fa-sign-in"></i></span>
         <span>Login</span>

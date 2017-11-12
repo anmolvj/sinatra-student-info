@@ -2,7 +2,7 @@
   <span class="icon is-small"><i class="fa fa-arrow-left"></i></span>
   <span>Student List</span>
 </a>
-
+<br/><br/>
 <div class="card ">
   <div class="card-content">
     <div class="media">
@@ -18,49 +18,88 @@
     </div>
 
     <div class="content">
-    
+
     </div>
   </div>
 </div>
 
-
+<br /><br />
 
 
 <% if User.count(id: session[:user_id]) != 0 %>
-<h2 class="title">Edit Student Info</h2>
+<h2 class="title is-3 has-text-danger">Edit Student Info</h2>
 <form method="post" action="/student/<%= @student.id %>">
     <input type="hidden" name="_method" value="put">
 
-    <label for="firstname" class="label">First Name: </label>
-    <input type="text" name="firstname" value="<%= @student.firstname %>" class="input">
+    <div class="field">
+      <label class="label">First Name</label>
+      <div class="control">
+        <input type="text" name="firstname"  value="<%= @student.firstname %>" class="input" placeholder="e.g Alex">
+      </div>
+    </div>
 
-    <label for="lastname" class="label">Last Name: </label>
-    <input type="text" name="lastname" value="<%= @student.lastname %>" class="input">
+    <div class="field">
+      <label class="label">Last Name</label>
+      <div class="control">
+        <input type="text" name="lastname"  value="<%= @student.lastname %>" class="input" placeholder="e.g Smith">
+      </div>
+    </div>
 
-    <label for="address" class="label">Birthday: </label>
-    <input type="number" name="birthday_year" value="<%= @student.birthday_year %>" class="input" placeholder="Year">
-    <input type="number" name="birthday_month" value="<%= @student.birthday_month %>" class="input" placeholder="Month">
-    <input type="number" name="birthday_day" value="<%= @student.birthday_day %>" class="input" placeholder="Day">
+    <div class="field">
+      <label class="label">Birthday</label>
+      <div class="control">
+        <input type="number" name="birthday_year"  value="<%= @student.birthday_year %>" class="input" placeholder="Year">
+        <input type="number" name="birthday_month" value="<%= @student.birthday_month %>" class="input" placeholder="Month">
+        <input type="number" name="birthday_day"   value="<%= @student.birthday_day %>" class="input" placeholder="Day">
+      </div>
+    </div>
+
+    <div class="field">
+      <label class="label">Address</label>
+      <div class="control">
+        <input type="text" name="address"  value="<%= @student.address %>" class="input" placeholder="e.g 123 Street, CA">
+      </div>
+    </div>
+
+    <div class="field">
+      <label class="label">Student ID</label>
+      <div class="control">
+        <input type="text" name="student_id"  value="<%= @student.student_id %>" class="input" placeholder="e.g 12345">
+      </div>
+    </div>
+
+    <div class="field">
+      <label class="label">Extra Info</label>
+      <div class="control">
+        <input type="text" name="extrainfo"  value="<%= @student.extrainfo %>" class="input" placeholder="e.g The student is a a part of swimming team">
+      </div>
+    </div>
 
 
-    <label for="address" class="label">Address: </label>
-    <input type="text" name="address" value="<%= @student.address %>" class="input">
-
-    <label for="student_id" class="label">Student ID: </label>
-    <input type="text" name="student_id" value="<%= @student.student_id %>" class="input">
-
-    <label for="extrainfo" class="label">Exra Info: </label>
-    <input type="text" name="extrainfo" value="<%= @student.extrainfo %>" class="input">
-
-    <button type="submit" class="button is-success">Update Student Info</button>
+    <div class="field is-grouped">
+      <div class="control">
+        <button type="submit" class="button is-success">Update Student Info</button>
+      </div>
+      <div class="control">
+        <button class="button is-text">Hide Form</button>
+      </div>
+    </div>
 </form>
-
+<br/>
 <form method="post" action="/student/<%= @student.id %>">
     <input type="hidden" name="_method" value="delete">
-    <button type="submit" class="button is-danger">Delete This Student</button>
+    <div class="field is-grouped">
+      <div class="control">
+        <button type="submit" class="button is-danger">Delete This Student</button>
+      </div>
+    </div>
 </form>
+
 
 <% else %>
 
    <a href="/login" class="button is-warning">Login to Edit Student Info</a>
 <% end %>
+
+
+<br/><br/>

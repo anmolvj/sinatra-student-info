@@ -16,10 +16,6 @@ configure do
 end
 
 
-student = Student.new firstname: "fire", lastname: "bom",  address:"my address", student_id: 1284369, birthday_year: 1999, birthday_month: 10, birthday_day: 23
-student.save
-comment = Comment.new name: "first comment", content: "These are the contents of this first comment"
-comment.save
 
 # index page
 get '/' do

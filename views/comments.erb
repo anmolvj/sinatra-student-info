@@ -19,7 +19,6 @@
 
 
 <% if User.count(id: session[:user_id]) != 0  %>
-  <h2>Add Comment</h2>
   <form method="post" action="/comment">
      <label for="name" class="label">Title: </label>
      <input type="text" name="name" class="input" placeholder="e.g MVC in Sinatra Apps">
