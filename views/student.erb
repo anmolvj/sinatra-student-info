@@ -31,25 +31,26 @@
 
 <% if User.count(id: session[:user_id]) != 0 %>
 <h2 class="title is-3 has-text-danger">Edit Student Info</h2>
+<h2 class="subtitle is-6 has-text-danger "><%= @student_error_message%></h2>
 <form method="post" action="/student/<%= @student.id %>">
     <input type="hidden" name="_method" value="put">
 
     <div class="field">
-      <label class="label">First Name</label>
+      <label class="label">First Name <span class="subtitle is-6 has-text-grey">(required)</span></label>
       <div class="control">
         <input type="text" name="firstname"  value="<%= @student.firstname %>" class="input" placeholder="e.g Alex">
       </div>
     </div>
 
     <div class="field">
-      <label class="label">Last Name</label>
+      <label class="label">Last Name <span class="subtitle is-6 has-text-grey">(required)</span></label>
       <div class="control">
         <input type="text" name="lastname"  value="<%= @student.lastname %>" class="input" placeholder="e.g Smith">
       </div>
     </div>
 
     <div class="field">
-      <label class="label">Birthday</label>
+      <label class="label">Birthday <span class="subtitle is-6 has-text-grey">(required)</span></label>
       <div class="control">
         <input type="number" name="birthday_year"  value="<%= @student.birthday_year %>" class="input" placeholder="Year">
         <input type="number" name="birthday_month" value="<%= @student.birthday_month %>" class="input" placeholder="Month">
@@ -65,7 +66,7 @@
     </div>
 
     <div class="field">
-      <label class="label">Student ID</label>
+      <label class="label">Student ID <span class="subtitle is-6 has-text-grey">(required)</span></label>
       <div class="control">
         <input type="text" name="student_id"  value="<%= @student.student_id %>" class="input" placeholder="e.g 12345">
       </div>
@@ -81,7 +82,7 @@
 
     <div class="field">
       <div class="control">
-        <button type="submit" class="button is-success">Update Student Info</button>
+        <button type="submit" class="button is-success"> Edit Student </button>
       </div>
     </div>
 </form>
@@ -90,7 +91,7 @@
     <input type="hidden" name="_method" value="delete">
     <div class="field">
       <div class="control">
-        <button type="submit" class="button is-danger">Delete This Student</button>
+        <button type="submit" class="button is-danger">Delete Student</button>
       </div>
     </div>
 </form>

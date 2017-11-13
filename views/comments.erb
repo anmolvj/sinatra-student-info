@@ -21,10 +21,11 @@
 <% if User.count(id: session[:user_id]) != 0  %>
 <br />
 <h2 class="title is-3 has-text-danger ">Add Comment</h2>
+<h2 class="subtitle is-6 has-text-danger "><%= @comments_error_message%></h2>
   <form method="post" action="/comment">
-     <label for="name" class="label">Title: </label>
+     <label for="name" class="label">Title <span class="subtitle is-6 has-text-grey">(required)</span></label>
      <input type="text" name="name" class="input" placeholder="e.g MVC in Sinatra Apps">
-     <label for="content" class="label">Content: </label>
+     <label for="content" class="label">Content <span class="subtitle is-6 has-text-grey">(required)</span></label>
      <input type="text" name="content" class="input" placeholder="e.g I found the implementation of a MVC style Sinatra app...">
      <br/><br/>
      <input type ="submit" value="Add Comment" class="button is-success">
