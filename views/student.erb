@@ -9,12 +9,14 @@
     <div class="media">
 
       <div class="media-content">
-        <p class="title is-4"><%= @student.firstname %> <%= @student.lastname %></p>
-        <p class="subtitle is-6">Joined - <%= @student.created_at %></p>
-        <p class="subtitle is-6">Address - <%= @student.address %></p>
-        <p class="subtitle is-6">Student_ID - <%= @student.student_id %></p>
-        <p class="subtitle is-6">Birthday - <%= @student.birthday.to_s %></p>
-        <p class="subtitle is-6">Extrs Info - <%= @student.extrainfo %></p>
+        <p class="title is-2 student_title"><%= @student.name.split.map(&:capitalize).join(' ') %></p>
+        <span class="subtitle is-6 has-text-grey joined_span">Joined - <%= @student.created_at %></span>
+
+        <p class="subtitle is-5"><strong>Address -</strong> <%= @student.address %><br />
+        <strong>Student_ID -</strong> <%= @student.student_id %><br />
+        <strong>Birthday - </strong><%= @student.birthday.to_s %><br />
+        <strong>Extrs Info -</strong> <%= @student.extrainfo %>
+        </p>
       </div>
     </div>
 

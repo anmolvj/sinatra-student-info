@@ -20,7 +20,7 @@
 <br/><br />
 
 <% if User.count(id: session[:user_id]) != 0 %>
-<h2 class="title ">Add Student</h2>
+<h2 class="title is-3 has-text-danger ">Add Student</h2>
 <form method="post" action="/student">
     <div class="field">
       <label class="label">First Name</label>
@@ -77,5 +77,5 @@
 
    <a href="/login" class="button is-warning">Login to Add Students</a>
 <% end %>
-
+<br/>
 </section>

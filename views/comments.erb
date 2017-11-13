@@ -10,7 +10,7 @@
   <tbody>
       <% @comments.each do |comment| %>
        <tr>
-         <th><a href="/comment/<%= comment.id %>"><p class="has-text-centered"><%= comment.name %></p></a></th>
+         <th><a href="/comment/<%= comment.id %>"><p class="has-text-centered"><%= comment.name.split.map(&:capitalize).join(' ') %></p></a></th>
          <th><p class="has-text-centered"><%= comment.created_at %></p></th>
      </tr>
       <% end %>
@@ -19,6 +19,8 @@
 
 
 <% if User.count(id: session[:user_id]) != 0  %>
+<br />
+<h2 class="title is-3 has-text-danger ">Add Comment</h2>
   <form method="post" action="/comment">
      <label for="name" class="label">Title: </label>
      <input type="text" name="name" class="input" placeholder="e.g MVC in Sinatra Apps">

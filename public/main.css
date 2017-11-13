@@ -72,9 +72,18 @@ body {
 	margin: auto;
 }
 .student_section{
-	width: 30%;
+	width: 40%;
 	margin: auto;
 }
 .field, .control{
   text-align: center;
+}
+
+.joined_span{
+  position: relative;
+  top: -25px;
+}
+
+.student_title{
+	margin-bottom: 0px;
 }
