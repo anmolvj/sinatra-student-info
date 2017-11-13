@@ -1,10 +1,38 @@
-<h2>Signup</h2>
-<form method="post" action="/signup">
-   <label for="name">Name: </label>
-   <input type="text" name="name" class="input">
-   <label for="email">Email: </label>
-   <input type="text" name="email" class="input">
-   <label for="password">Password: </label>
-   <input type="password" name="password" class="input">
-   <input type ="submit" value="Signup" class="button">
+<h2 class="subtitle is-6 has-text-danger "><%= @signup_error_message%></h2>
+<section class="login_section">
+<form method="post" class="field" action="/signup">
+
+  <div class="field">
+    <p class="control has-icons-left">
+      <input class="input" type="text" name="name" placeholder="name">
+      <span class="icon is-small is-left">
+        <i class="fa fa-user"></i>
+      </span>
+    </p>
+  </div>
+  <p>
+
+  <div class="field">
+    <p class="control has-icons-left has-icons-right">
+      <input class="input" type="text" placeholder="Email" name="email">
+      <span class="icon is-small is-left">
+        <i class="fa fa-envelope"></i>
+      </span>
+    </p>
+  </div>
+
+  <div class="field">
+    <p class="control has-icons-left">
+      <input class="input" type="password" name="password" placeholder="Password">
+      <span class="icon is-small is-left">
+        <i class="fa fa-lock"></i>
+      </span>
+    </p>
+  </div>
+  <p>
+
+   <input type ="submit" value="Signup" class="button is-success">
+   <a href="/login" class="button is-info"> << Login</a>
+ </p>
 </form>
+</section>
